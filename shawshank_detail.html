@@ -68,7 +68,49 @@
             <p><span class="badge badge-light">Genre: </span> Drama</p>
             <hr class="my-4 d-none d-md-block">
             <div>
-              <a class="btn btn-outline-light btn-lg" href="#" role="button">Add to Basket</a>
+              <a class="btn btn-outline-light btn-lg" href="#" role="button" data-toggle="modal" data-target="#staticBackdrop">Add to Basket</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark" id="staticBackdropLabel">Payment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label class="text-dark" for="exampleInputFirstName">First Name</label>
+                  <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Your First Name">
+                </div>
+                <div class="form-group">
+                  <label class="text-dark" for="exampleInputLastName">Last Name</label>
+                  <input type="text" class="form-control" id="exampleInputLastName"  placeholder="Your Last Name">
+                </div>
+                <div class="form-group">
+                  <label class="text-dark" for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your E-mail">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label class="text-dark" for="exampleInputPhoneNumber">Phone Number</label>
+                  <input type="password" class="form-control" id="exampleInputPhoneNumber" placeholder="Your Phone Number">
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="text-dark" class="form-check-label" for="exampleCheck1">I agree to proceed with my payment</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
