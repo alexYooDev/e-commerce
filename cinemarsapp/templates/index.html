@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <section class="landing-page-section-layout">
+    <article>
+      <div id="landing-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators d-none">
+          <li data-target="#landing-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#landing-carousel" data-slide-to="1"></li>
+          <li data-target="#landing-carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://image.tmdb.org/t/p/original/zb6fM1CX41D9rF9hdgclu0peUmy.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption landing-caption">
+              <h2>
+                Step into the world of your Movie world!
+              </h2>
+              <p>Simply shop and add to the collections of your favorites, We got your sophisticated tastes of movies covered! </p>
+              <a href="#" class="btn btn-outline-light">Learn More</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/9faGSFi5jam6pDWGNd0p8JcJgXQ.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption landing-caption">
+              <h2>
+                Add your awaited new series to your collections!
+              </h2>
+              <p>Simply shop and add to the collections of your favorites, We got your newest release of series seasons covered! </p>
+              <a href="#" class="btn btn-outline-light">Learn More</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://image.tmdb.org/t/p/original/8eihUxjQsJ7WvGySkVMC0EwbPAD.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption landing-caption">
+              <h2>International Shows?</h2>
+              <p>Going above and beyond your expectation, We have numbers of international movies and series in stock!</p>
+              <p>To promote the regional filmmakers and introduce their masterpieces to the new audience, we are offering <strong>20% off!</strong></p>
+              <a href="#" class="btn btn-outline-light">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-target="#landing-carousel" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#landing-carousel" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </button>
+      </div>
+    </article>
+  </section>
+  <section class="landing-page-section-layout">
+    <div id="top-ranked-carousel" class="carousel slide">
+      <ol class="carousel-indicators">
+          <li data-target="#top-ranked-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#top-ranked-carousel" data-slide-to="1"></li>
+          <li data-target="#top-ranked-carousel" data-slide-to="2"></li>
+        </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h2 class="section-title">Our Top Rated Classics</h2>
+          <div class="featured-item-list">
+            <article class="featured-items">
+              <div class="card bg-dark">
+                <img src="https://image.tmdb.org/t/p/original/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">The Shawshank Redemption</h5>
+                    <p class="movie-description">Imprisoned in the 1940s for the double murder of his wife and her lover.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 9.99</p>
+                      <p class="rating">Rating: 8.69</p>
+                    </div>
+                    <a href={{url_for('main.detail')}} class="btn btn-secondary">View Detail</a>
+                  </div>
+                </div>
+              </article>
+              <article class="featured-items">
+                <div class="card bg-dark" >
+                  <img src="https://image.tmdb.org/t/p/original/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">God Father</h5>
+                    <p class="movie-description">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 11.99</p>
+                      <p class="rating">Rating: 8.7</p>
+                    </div>
+                    <a href={{url_for('main.detail')}} class="btn btn-secondary">View Detail</a>
+                  </div>
+                </div>
+              </article>
+              <article class="featured-items">
+                <div class="card bg-dark">
+                  <img src="https://image.tmdb.org/t/p/original/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">Schindler's List</h5>
+                    <p class="movie-description">The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 10.99</p>
+                      <p class="rating">Rating: 8.57</p>
+                    </div>
+                    <a href={{url_for('main.detail')}} class="btn btn-secondary">View Detail</a>
+                  </div>
+              </div>
+            </article>
+          </div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Greatest Of All Times Classics</h5>
+            <p>You never grow out of the "Classics"</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!-- card list -->
+            <h2 class="section-title">Our Top Rated Thrillers</h2>
+          <div class="featured-item-list">
+            <article class="featured-items">
+              <div class="card bg-dark">
+                <img src="https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">Dark Knight</h5>
+                    <p class="movie-description">Batman battles the Joker in an attempt to save Gotham.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 9.99</p>
+                      <p class="rating">Rating: 8.69</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-secondary">View Detail</a>
+                  </div>
+                </div>
+              </article>
+              <article class="featured-items">
+                <div class="card bg-dark" >
+                  <img src="https://image.tmdb.org/t/p/original/8OKmBV5BUFzmozIC3pPWKHy17kx.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">Seven Samurai</h5>
+                    <p class="movie-description">A samurai leads a village's defense against bandits.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 11.99</p>
+                      <p class="rating">Rating: 8.7</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-secondary">View Detail</a>
+                  </div>
+                </div>
+              </article>
+              <article class="featured-items">
+                <div class="card bg-dark">
+                  <img src="https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">Parasite</h5>
+                    <p class="movie-description">A poor family infiltrates a wealthy household.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 10.99</p>
+                      <p class="rating">Rating: 8.57</p>
+                    </div>
+                    <a href="detail.html" class="btn btn-secondary">View Detail</a>
+                  </div>
+              </div>
+            </article>
+          </div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Best of all Thrillers</h5>
+            <p>Thrillas like in Manilla</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <h2 class="section-title">Our Top Rated Family Movies</h2>
+          <div class="featured-item-list">
+            <article class="featured-items">
+              <div class="card bg-dark">
+                <img src="https://image.tmdb.org/t/p/original/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">Spirited Away</h5>
+                    <p class="movie-description">A young girl navigates a magical world to save her parents.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 9.99</p>
+                      <p class="rating">Rating: 8.69</p>
+                    </div>
+                    <a href="#" class="btn btn-secondary">View Detail</a>
+                  </div>
+                </div>
+              </article>
+              <article class="featured-items">
+                <div class="card bg-dark" >
+                  <img src="https://image.tmdb.org/t/p/original/vfJFJPepRKapMd5G2ro7klIRysq.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">Your Name.</h5>
+                    <p class="movie-description">High schoolers must adjust to switching lives in a mysterious way.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 11.99</p>
+                      <p class="rating">Rating: 8.5</p>
+                    </div>
+                    <a href="#" class="btn btn-secondary">View Detail</a>
+                  </div>
+                </div>
+              </article>
+              <article class="featured-items">
+                <div class="card bg-dark">
+                  <img src="https://image.tmdb.org/t/p/original/gCI2AeMV4IHSewhJkzsur5MEp6R.jpg" class="card-img-top" alt="...">
+                  <div class="card-body text-light">
+                    <h5 class="card-title">Cinema Paradiso</h5>
+                    <p class="movie-description">A filmmaker recalls his love for cinema and a deep friendship.</p>
+                    <div class="d-flex justify-content-between">
+                      <p class="price">$ 8.99</p>
+                      <p class="rating">Rating: 8.45</p>
+                    </div>
+                    <a href="#" class="btn btn-secondary">View Detail</a>
+                  </div>
+              </div>
+            </article>
+          </div>
+          <div class="carousel-caption d-none d-md-block pd-top">
+            <h5>Best of all Family Movies</h5>
+            <p>Great to spend time with your family with!</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-target="#top-ranked-carousel" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-target="#top-ranked-carousel" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </button>
+    </div>
+  </section>
+  <section class="landing-page-section-layout category">
+    <div class="text-center">
+      <h2 class="section-title">Categories</h2>
+      <p>Indulge yourself in our various range of categories of DVDs!</p>
+    </div>
+    <article class="container-fluid category-container">
+      <div class="row justify-content-center">
+        <a class="text-light text-decoration-none" href="#">
+          <div class="card bg-dark  category-card" >
+            <img src="https://image.tmdb.org/t/p/original/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg" class="card-img-top" alt="...">
+            <div class="card-body card-img-overlay category-overlay-desc">
+              <h5 class="card-title">Actions</h5>
+              <p class="card-text">Have a look at our Actions collections</p>
+            </div>
+          </div>
+        </a>
+        <a class="text-light text-decoration-none" href="#">
+          <div class="card bg-dark category-card" >
+            <img src="https://image.tmdb.org/t/p/original/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg" class="card-img-top" alt="...">
+            <div class="card-body card-img-overlay category-overlay-desc">
+              <h5 class="card-title">Crime</h5>
+              <p class="card-text">Have a look at our Crime collections</p>
+            </div>
+          </div>
+        </a>
+        <a class="text-light text-decoration-none" href="#">
+          <div class="card bg-dark category-card" >
+            <img src="https://image.tmdb.org/t/p/original/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg" class="card-img-top" alt="...">
+            <div class="card-body card-img-overlay category-overlay-desc">
+              <h5 class="card-title">Comedy</h5>
+              <p class="card-text">Have a look at our Comedy collections</p>
+            </div>
+          </div>
+        </a>
+        <a class="text-light text-decoration-none" href="#">
+          <div class="card bg-dark category-card" >
+            <img src="https://image.tmdb.org/t/p/original/k9tv1rXZbOhH7eiCk378x61kNQ1.jpg" class="card-img-top" alt="...">
+            <div class="card-body card-img-overlay category-overlay-desc">
+              <h5 class="card-title">Family</h5>
+              <p class="card-text">Have a look at our Family collections</p>
+            </div>
+          </div>
+        </a>
+        <a class="text-light text-decoration-none" href="#">
+          <div class="card bg-dark  category-card" >
+            <img src="https://image.tmdb.org/t/p/original/74hLDKjD5aGYOotO6esUVaeISa2.jpg" class="card-img-top" alt="...">
+            <div class="card-body card-img-overlay category-overlay-desc">
+              <h5 class="card-title">Romance</h5>
+              <p class="card-text">Have a look at our Romance collections</p>
+            </div>
+          </div>
+        </a>
+        <a class="text-light text-decoration-none" href="#">
+          <div class="card bg-dark category-card" >
+            <img src="https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" class="card-img-top" alt="...">
+            <div class="card-body card-img-overlay category-overlay-desc">
+              <h5 class="card-title">Thriller</h5>
+              <p class="card-text">Have a look at our Triller collections</p>
+            </div>
+          </div>
+        </a>
+        <a class="text-light text-decoration-none" href="#">
+          <div class="card bg-dark category-card">
+            <img src="https://image.tmdb.org/t/p/original/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg" class="card-img-top" alt="...">
+            <div class="card-body card-img-overlay category-overlay-desc">
+              <h5 class="card-title">Western</h5>
+              <p class="card-text">Have a look at our Western collections</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </article>
+  </section>
+{% endblock %}

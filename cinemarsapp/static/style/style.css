@@ -1,0 +1,226 @@
+html, body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif, Verdena, Geneva, Tahoma, sans-serif;
+}
+
+.logo {
+  width: 30px;
+}
+
+.navbar {
+  opacity: 0.9;
+  color: #EEEEEE;
+}
+
+.nav-link {
+  color: #EEEEEE;
+}
+
+.landing-page-section-layout {
+  background-color: #222831;
+  color: #EEEEEE;
+  padding-bottom: 100px;
+}
+
+.landing-page-section-layout.category {
+  background-color: #232931;
+}
+
+.page-section-layout {
+  background-color: #222831;
+  color: #EEEEEE;
+}
+
+.landing-caption { 
+  width: 400px; 
+  z-index:10; 
+  border-radius: 8px;
+  background: rgb(0 0 0 / 50%);
+  padding: 20px;
+  color:#fff; 
+  top:50%; left:65%; 
+  -webkit-transform:translate(0, -50%); 
+  -ms-transform:translate(0, -50%); 
+  transform:translate(0, -50%); 
+}
+
+.section-title {
+  font-size: 35px;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.featured-item-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 120px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 18px;
+}
+
+.movie-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.featured-items .card {
+  width: 18rem;
+  margin: 20px;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0 0 0.5em rgb(0 0 0 / 70%);
+}
+
+.featured-items .card:hover {
+  transform: scale(1.02);
+}
+
+.featured-items .card img {
+  height: 300px;
+  object-fit: cover narrow;
+}
+
+.detail-card {
+  background-image: url('https://image.tmdb.org/t/p/original/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg');
+  background-size: cover;
+  margin: 0;
+  height: 85vh;
+  padding: 80px 20px 20px 20px;
+}
+
+.detail-card img {
+  height: 70vh;
+  border-radius: 5px;
+}
+
+.detail-content {
+  display: flex;
+}
+
+.detail-description {
+  border-radius: 8px;
+  padding: 10px;
+  background: rgb(0 0 0 / 60%);
+  margin: 0 20px;
+  padding: 30px;
+  font-size: 14px;
+}
+
+.featured-items .card .price, .rating {
+  font-weight: bold;
+}
+
+.category-card {
+  margin: 20px;
+  width: 18rem;
+  border: 0;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0 0 0.5em rgb(0 0 0 / 70%);
+}
+
+.category-card:hover {
+  transform: scale(1.02);
+}
+
+.category-overlay-desc {
+  background: rgb(0 0 0 / 40%);
+}
+
+.category-overlay-desc:hover {
+  background: rgb(0 0 0 / 10%);
+  color: white;
+}
+
+
+footer {
+  padding-top: 20px;
+  background-color: #31363F;
+  color: #EEEEEE;
+}
+
+footer ul {
+  padding: 0;
+}
+
+footer ul li {
+  list-style: none;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+};
+
+.footer-article-title {
+ text-align: center;
+}
+
+@media (max-width: 768px) {
+  .landing-caption {
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 576px) {
+
+  .featured-item-list {
+    flex-direction: column;
+  }
+
+  .landing-caption {
+    width: 70%;
+    left: 0;
+    padding: 10px;
+    z-index:10; 
+    border-radius: 8px;
+    background: rgb(0 0 0 / 50%);
+    color:#fff; 
+    text-align:center; 
+    top:45%; left:65%; 
+    -webkit-transform:translate(0, -50%); 
+    -ms-transform:translate(0, -50%); 
+    transform:translate(0, -50%); 
+  }
+
+  .landing-caption h2 {
+    font-size: 1.2rem;
+  }
+
+  .landing-caption p {
+    font-size: 0.5rem;
+  }
+
+  .landing-caption a {
+    width: 10rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+
+  .detail-card {
+    height: 100%;
+  }
+
+  .detail-content {
+    flex-direction: column;
+  }
+
+  .detail-description {
+    margin: 20px 0;
+  }
+
+  .detail-card img {
+    width: 100%;
+  }
+
+  .footer-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
