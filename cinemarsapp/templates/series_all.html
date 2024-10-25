@@ -4,18 +4,18 @@
 
 <section class="page-section-layout">
   <div class="container-fluid">
-    <article class="row">
+    <article class="row justify-content-center">
     {% for series in tv_series %}
       <div class="card bg-dark" >
           <img src={{"https://image.tmdb.org/t/p/original/"+series.poster_path}} class="card-img-top" alt={{series.title}}>
           <div class="card-body text-light">
-            <h5 class="card-title">{{series.title}}</h5>
+            <h5 class="card-title">{{series.name}}</h5>
             <p class="movie-description">{{series.description}}</p>
             <div class="d-flex justify-content-between">
-              <!-- <p class="price">$ {{movie.price}}</p> -->
+              <!-- <p class="price">$ {{series.price}}</p> -->
               <p class="rating">Rating: {{"%.2f" % series.vote_average}}</p>
             </div>
-            <a href={{url_for("main.detail")}} class="btn btn-secondary">View Detail</a>
+            <a href={{url_for("main.detail", dvdid=series.id)}} class="btn btn-secondary">View Detail</a>
           </div>
         </div>
       {% endfor %}

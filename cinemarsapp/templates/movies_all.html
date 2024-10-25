@@ -4,7 +4,7 @@
 
 <section class="page-section-layout">
   <div class="container-fluid">
-    <article class="row">
+    <article class="row justify-content-center">
     {% for movie in movies %}
       <div class="card bg-dark" >
           <img src={{"https://image.tmdb.org/t/p/original/"+movie.poster_path}} class="card-img-top" alt={{movie.title}}>
@@ -15,7 +15,7 @@
               <p class="price">$ {{movie.price}}</p>
               <p class="rating">Rating: {{"%.2f" % movie.vote_average}}</p>
             </div>
-            <a href={{url_for("main.detail")}} class="btn btn-secondary">View Detail</a>
+            <a href={{url_for("main.detail", dvdid=movie.id)}} class="btn btn-secondary">View Detail</a>
           </div>
         </div>
       {% endfor %}

@@ -2,22 +2,19 @@
 
 {% block main %}
   <section class="page-section-layout">
-    <div class="detail-card bg-dark">
+    <div class="detail-card bg-dark" style="background-image: url(https://image.tmdb.org/t/p/original{{ dvd.backdrop_path }})">
       <div class="detail-content">
-      <img src="https://image.tmdb.org/t/p/original/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg" alt="the shawshank redemption">
+      <img src="https://image.tmdb.org/t/p/original{{ dvd.poster_path }}" alt="the shawshank redemption">
       <div class="detail-description d-flex flex-column">
           <h2 class="title">
-            The Shawshank Redemption
+            {{ dvd.title }}
           </h2>
           <h6>Overview</h6>
-          <p>Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.</p>
+          <p>{{dvd.overview}}</p>
           <p><span class="badge badge-light">Genre: </span> Crime, Drama</p>
-          <p><span class="badge badge-light">Director: </span> Frank Darabont</p>
           <p><span class="badge badge-light">Featured: </span> Tim Robbins, Morgan Freeman, Bob Gunton</p>
-          <p><span class="badge badge-light">Runtime: </span> 142 minutes</p>
-          <p><span class="badge badge-light">Release Date: </span> 1994-09-23</p>
-          <p><span class="badge badge-light">Rating: </span> 8.69</p>
-          <p><span class="badge badge-light">Price: </span> <strong>$ 9.99</strong></p>
+          <p><span class="badge badge-light">Release Date: </span> {{dvd.release_date}}</p>
+          <p><span class="badge badge-light">Rating: </span> {{"%.2f" % dvd.vote_average}}</p>
           <hr class="my-4 d-none d-md-block">
           <div>
               <button type="button" class="btn btn-outline-light btn-lg" >Save to Wishlist</button>
