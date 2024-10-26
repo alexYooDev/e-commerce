@@ -62,18 +62,18 @@
         <div class="carousel-item active">
           <h2 class="section-title">Our Top Rated Dramas</h2>
           <div class="featured-item-list">
-            {% for i in range(0,3) %}
+            {% for drama in drama_dvd %}
               <article class="featured-items">
                 <div class="card bg-dark">
-                  <img src="https://image.tmdb.org/t/p/original/{{ drama[i].poster_image }}" class="card-img-top" alt="...">
+                  <img src="https://image.tmdb.org/t/p/original/{{ drama.poster_image }}" class="card-img-top" alt="...">
                     <div class="card-body text-light">
-                      <h5 class="card-title">{{ drama[i].title }}</h5>
-                      <p class="movie-description">{{ drama[i].description }}</p>
+                      <h5 class="card-title">{{ drama.title }}</h5>
+                      <p class="movie-description">{{ drama.description }}</p>
                       <div class="d-flex justify-content-between">
-                        <p class="price">$ {{drama[i].price}}</p>
-                        <p class="rating">Rating: {{ "%.2f" % drama[i].rating}}</p>
+                        <p class="price">$ {{drama.price}}</p>
+                        <p class="rating">Rating: {{ "%.2f" % drama.rating}}</p>
                       </div>
-                      <a href={{url_for('main.detail', dvd_id=drama[i].id)}} class="btn btn-secondary">View Detail</a>
+                      <a href={{url_for('main.detail', dvd_id=drama.id)}} class="btn btn-secondary">View Detail</a>
                     </div>
                   </div>
                 </article>
@@ -88,18 +88,18 @@
           <!-- card list -->
           <h2 class="section-title">Our Top Rated Thrillers</h2>
           <div class="featured-item-list">
-            {% for i in range(0,3) %}
+            {% for thriller in thriller_dvd %}
               <article class="featured-items">
                 <div class="card bg-dark">
-                  <img src="https://image.tmdb.org/t/p/original/{{ thriller[i].poster_image }}" class="card-img-top" alt="...">
+                  <img src="https://image.tmdb.org/t/p/original/{{ thriller.poster_image }}" class="card-img-top" alt="...">
                     <div class="card-body text-light">
-                      <h5 class="card-title">{{ thriller[i].title }}</h5>
-                      <p class="movie-description">{{ thriller[i].description }}</p>
+                      <h5 class="card-title">{{ thriller.title }}</h5>
+                      <p class="movie-description">{{ thriller.description }}</p>
                       <div class="d-flex justify-content-between">
-                        <p class="price">$ {{thriller[i].price}}</p>
-                        <p class="rating">Rating: {{ "%.2f" % thriller[i].rating}}</p>
+                        <p class="price">$ {{thriller.price}}</p>
+                        <p class="rating">Rating: {{ "%.2f" % thriller.rating}}</p>
                       </div>
-                      <a href={{url_for('main.detail', dvd_id=thriller[i].id)}} class="btn btn-secondary">View Detail</a>
+                      <a href={{url_for('main.detail', dvd_id=thriller.id)}} class="btn btn-secondary">View Detail</a>
                     </div>
                   </div>
                 </article>
@@ -113,18 +113,18 @@
         <div class="carousel-item">
           <h2 class="section-title">Our Top Rated Family Movies</h2>
           <div class="featured-item-list">
-            {% for i in range(0,3) %}
+            {% for family in family_dvd %}
               <article class="featured-items">
                 <div class="card bg-dark">
-                  <img src="https://image.tmdb.org/t/p/original/{{ family[i].poster_image }}" class="card-img-top" alt="...">
+                  <img src="https://image.tmdb.org/t/p/original/{{ family.poster_image }}" class="card-img-top" alt="...">
                     <div class="card-body text-light">
-                      <h5 class="card-title">{{ family[i].title }}</h5>
-                      <p class="movie-description">{{ family[i].description }}</p>
+                      <h5 class="card-title">{{ family.title }}</h5>
+                      <p class="movie-description">{{ family.description }}</p>
                       <div class="d-flex justify-content-between">
-                        <p class="price">$ {{family[i].price}}</p>
-                        <p class="rating">Rating: {{ "%.2f" % family[i].rating}}</p>
+                        <p class="price">$ {{family.price}}</p>
+                        <p class="rating">Rating: {{ "%.2f" % family.rating}}</p>
                       </div>
-                      <a href={{url_for('main.detail', dvd_id=family[i].id)}} class="btn btn-secondary">View Detail</a>
+                      <a href={{url_for('main.detail', dvd_id=family.id)}} class="btn btn-secondary">View Detail</a>
                     </div>
                   </div>
                 </article>

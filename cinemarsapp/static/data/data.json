@@ -788,7 +788,9 @@
         "category": "series",
         "price": 13.58,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 60625,
@@ -809,7 +811,9 @@
         "category": "series",
         "price": 11.72,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 31911,
@@ -830,7 +834,9 @@
         "category": "series",
         "price": 14.8,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 60059,
@@ -849,7 +855,9 @@
         "category": "series",
         "price": 10.41,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 87108,
@@ -867,7 +875,9 @@
         "category": "series",
         "price": 13.99,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 70785,
@@ -886,7 +896,9 @@
         "category": "series",
         "price": 11.28,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 92685,
@@ -909,7 +921,9 @@
         "category": "series",
         "price": 15.41,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 62741,
@@ -929,7 +943,9 @@
         "category": "series",
         "price": 10.3,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 85937,
@@ -949,7 +965,9 @@
         "category": "series",
         "price": 11.62,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 1429,
@@ -969,7 +987,9 @@
         "category": "series",
         "price": 13.58,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 42705,
@@ -990,7 +1010,9 @@
         "category": "series",
         "price": 15.03,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 135157,
@@ -1011,7 +1033,9 @@
         "category": "series",
         "price": 14.01,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 221851,
@@ -1031,7 +1055,9 @@
         "category": "series",
         "price": 12.31,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 68349,
@@ -1050,7 +1076,9 @@
         "category": "series",
         "price": 12.08,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     },
     {
         "id": 95557,
@@ -1071,6 +1099,8 @@
         "category": "series",
         "price": 14.15,
         "runtime": 0,
-        "episodes": 0
+        "episodes": 0,
+        "director": "Anonymous",
+        "main_actors": []
     }
 ]

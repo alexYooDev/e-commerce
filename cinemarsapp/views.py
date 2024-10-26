@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
-from .models import DVD
+from .models import DVD,Genre,Actor, dvd_genre_association, dvd_actor_association
+from . import db
 import traceback
 
 bp = Blueprint('main', __name__)
@@ -27,7 +28,7 @@ bp = Blueprint('main', __name__)
 #       ],
 #       "genres": ["Drama", "Crime"],
 #       "runtime": 142,
-#       "vote_average": 8.707,
+#       "rating": 8.707,
 #       "price": 9.99
 #     },
 #     {
@@ -52,7 +53,7 @@ bp = Blueprint('main', __name__)
 #       "genres": ["Crime", "Drama"],
 #       "runtime": 175,
       
-#       "vote_average": 8.69,
+#       "rating": 8.69,
 #       "price": 11.99
 #     },
 #     {
@@ -76,7 +77,7 @@ bp = Blueprint('main', __name__)
 #       ],
 #       "genres": ["Crime", "Drama"],
 #       "runtime": 202,
-#       "vote_average": 8.575,
+#       "rating": 8.575,
 #       "price": 10.99
 #     },
 #     {
@@ -100,7 +101,7 @@ bp = Blueprint('main', __name__)
 #       ],
 #       "genres": ["Biography", "Drama", "History", "War"],
 #       "runtime": 195,
-#       "vote_average": 8.565,
+#       "rating": 8.565,
 #       "price": 8.99
 #     },
 #     {
@@ -125,7 +126,7 @@ bp = Blueprint('main', __name__)
 #       "genres": ["Drama"],
 #       "runtime": 96,
       
-#       "vote_average": 8.546,
+#       "rating": 8.546,
 #       "price": 7.99
 #     },
 #     {
@@ -150,7 +151,7 @@ bp = Blueprint('main', __name__)
 #       "genres": ["Animation", "Family", "Fantasy"],
 #       "runtime": 125,
       
-#       "vote_average": 8.537,
+#       "rating": 8.537,
 #       "price": 9.99
 #     },
 #     {
@@ -174,7 +175,7 @@ bp = Blueprint('main', __name__)
 #       ],
 #       "genres": ["Comedy", "Drama", "Romance"],
 #       "runtime": 190,
-#       "vote_average": 8.529,
+#       "rating": 8.529,
 #       "price": 11.99
 #     },
 #     {
@@ -198,7 +199,7 @@ bp = Blueprint('main', __name__)
 #       ],
 #       "genres": ["Action", "Crime", "Drama", "Thriller"],
 #       "runtime": 152,
-#       "vote_average": 8.515,
+#       "rating": 8.515,
 #       "price": 10.99
 #     },
 #     {
@@ -222,7 +223,7 @@ bp = Blueprint('main', __name__)
 #       ],
 #       "genres": ["Comedy", "Drama", "Thriller"],
 #       "runtime": 132,
-#       "vote_average": 8.506,
+#       "rating": 8.506,
 #       "price": 8.99
 #     },
 #     {
@@ -246,7 +247,7 @@ bp = Blueprint('main', __name__)
 #       ],
 #       "genres": ["Crime", "Drama", "Fantasy"],
 #       "runtime": 189,
-#       "vote_average": 8.5,
+#       "rating": 8.5,
 #       "price": 7.99
 #     },
 #     {
@@ -261,7 +262,7 @@ bp = Blueprint('main', __name__)
 #       "release_date": "1994-09-10",
 #       "title": "Pulp Fiction",
       
-#       "vote_average": 8.5,
+#       "rating": 8.5,
 #       "price": 9.99,
 #       "director": "James Cameron",
 #       "main_actors": [
@@ -285,7 +286,7 @@ bp = Blueprint('main', __name__)
 #       "poster_path": "/vfJFJPepRKapMd5G2ro7klIRysq.jpg",
 #       "release_date": "2016-08-26",
 #       "title": "Your Name.",
-#       "vote_average": 8.486,
+#       "rating": 8.486,
 #       "price": 11.99,
 #       "director": "Makoto Shinkai",
 #       "main_actors": [
@@ -309,7 +310,7 @@ bp = Blueprint('main', __name__)
 #       "poster_path": "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
 #       "release_date": "2003-12-17",
 #       "title": "The Lord of the Rings: The Return of the King",
-#       "vote_average": 8.482,
+#       "rating": 8.482,
 #       "price": 10.99,
 #       "director": "Peter Jackson",
 #       "main_actors": [
@@ -333,7 +334,7 @@ bp = Blueprint('main', __name__)
 #       "poster_path": "/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg",
 #       "release_date": "1994-06-23",
 #       "title": "Forrest Gump",
-#       "vote_average": 8.472,
+#       "rating": 8.472,
 #       "price": 8.99,
 #       "director": "Robert Zemeckis",
 #       "main_actors": [
@@ -357,7 +358,7 @@ bp = Blueprint('main', __name__)
 #       "poster_path": "/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg",
 #       "release_date": "1990-09-12",
 #       "title": "GoodFellas",
-#       "vote_average": 8.5,
+#       "rating": 8.5,
 #       "price": 7.99,
 #       "director": "Martin Scorsese",
 #       "main_actors": [
@@ -381,7 +382,7 @@ bp = Blueprint('main', __name__)
 #       "poster_path": "/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg",
 #       "release_date": "1966-12-22",
 #       "title": "The Good, the Bad and the Ugly",
-#       "vote_average": 8.462,
+#       "rating": 8.462,
 #       "price": 9.99,
 #       "director": "Sergio Leone",
 #       "main_actors": [
@@ -405,7 +406,7 @@ bp = Blueprint('main', __name__)
 #       "poster_path": "/8OKmBV5BUFzmozIC3pPWKHy17kx.jpg",
 #       "release_date": "1954-04-26",
 #       "title": "Seven Samurai",
-#       "vote_average": 8.5,
+#       "rating": 8.5,
 #       "price": 11.99,
 #       "director": "Akira Kurosawa",
 #       "main_actors": [
@@ -430,7 +431,7 @@ bp = Blueprint('main', __name__)
 #       "poster_path": "/k9tv1rXZbOhH7eiCk378x61kNQ1.jpg",
 #       "release_date": "1988-04-16",
 #       "title": "Grave of the Fireflies",
-#       "vote_average": 8.456,
+#       "rating": 8.456,
 #       "price": 10.99,
 #       "director": "Isao Takahata",
 #       "main_actors": [
@@ -454,7 +455,7 @@ bp = Blueprint('main', __name__)
 #       "release_date": "1988-11-17",
 #       "title": "Cinema Paradiso",
       
-#       "vote_average": 8.45,
+#       "rating": 8.45,
 #       "price": 8.99,
 #       "director": "Giuseppe Tornatore",
 #       "main_actors": [
@@ -479,7 +480,7 @@ bp = Blueprint('main', __name__)
 #       "release_date": "1997-12-20",
 #       "title": "Life Is Beautiful",
       
-#       "vote_average": 8.448,
+#       "rating": 8.448,
 #       "price": 7.99,
 #       "director": "Roberto Benigni",
 #       "main_actors": [
@@ -497,14 +498,21 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/')
 def index():
-  drama_dvd = DVD.query.filter(DVD.genres.has(id=18))
-  thriller_dvd = DVD.query.filter(DVD.genres.has(id=53))
-  family_dvd = DVD.query.filter(DVD.genres.has(id=10751))
-  return render_template('index.html', drama = drama_dvd, thriller=thriller_dvd, family=family_dvd)
+
+  drama = 18 
+  thriller = 53
+  family = 10751
+
+  # Query to get DVDs with a specific genre
+  drama_dvd = db.session.query(DVD).join(dvd_genre_association).join(Genre).filter(Genre.id == drama).limit(3).all()
+  thriller_dvd = db.session.query(DVD).join(dvd_genre_association).join(Genre).filter(Genre.id == thriller).limit(3).all()
+  family_dvd = db.session.query(DVD).join(dvd_genre_association).join(Genre).filter(Genre.id == family).limit(3).all()
+  
+  return render_template('index.html', drama_dvd = drama_dvd, thriller_dvd=thriller_dvd, family_dvd=family_dvd)
 
 @bp.route('/detail/<int:dvd_id>')
 def detail(dvd_id):
-  dvd_detail = DVD.query.filter(DVD.id == dvd_id)
+  dvd_detail = db.session.query(DVD).filter(DVD.id == dvd_id).one()
   return render_template('detail.html', dvd = dvd_detail)
 
 @bp.route('/movies_all')

@@ -7,19 +7,29 @@
       <img src="https://image.tmdb.org/t/p/original{{ dvd.poster_image }}" alt="the shawshank redemption">
       <div class="detail-description d-flex flex-column">
           <h2 class="title">
-            {{ dvd.title }}
+            {% if dvd.title == dvd.original_title %}
+              {{ dvd.title }}
+            {% else %}
+              {{ dvd.title }} ({{ dvd.original_title }})
+            {% endif %}
           </h2>
           <h6>Overview</h6>
           <p>{{dvd.description}}</p>
           <p><span class="badge badge-light">Genre: </span> 
-            {{dvd.genre}}
+            || 
+            {% for genre in dvd.genres %} 
+              {{ genre.name }} ||
+            {% endfor %}
           </p>
-          <p><span class="badge badge-light">Director: </span> {{dvd.director}}</p>
+          <p><span class="badge badge-light">Director: </span> {{ dvd.director }}</p>
           <p><span class="badge badge-light">Featured: </span> 
-            {{dvd.main_actors}}
+            || 
+            {% for actor in dvd.actors %}
+              {{ actor.name }} ||
+            {% endfor %}
           </p>
           <p><span class="badge badge-light">Release Date: </span> {{dvd.release_date}}</p>
-        
+          <p><span class="badge badge-light">Price: </span> $ {{dvd.price}}</p>
           <hr class="my-4 d-none d-md-block">
           <div>
               <button type="button" class="btn btn-outline-light btn-lg" >Save to Wishlist</button>

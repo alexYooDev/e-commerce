@@ -26,6 +26,12 @@ for dvd_data in data:
 
   if 'episodes' not in dvd_data:
     dvd_data['episodes'] = 0
+    
+  if 'director' not in dvd_data:
+    dvd_data['director'] = 'Anonymous'
+  
+  if 'main_actors' not in dvd_data:
+    dvd_data['main_actors'] = []
 # with open(file_path, 'r') as movies_file:
 #   movies = json.load(movies_file)
 
