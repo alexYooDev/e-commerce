@@ -2,19 +2,24 @@
 
 {% block main %}
   <section class="page-section-layout">
-    <div class="detail-card bg-dark" style="background-image: url(https://image.tmdb.org/t/p/original{{ dvd.backdrop_path }})">
+    <div class="detail-card bg-dark" style="background-image: url(https://image.tmdb.org/t/p/original{{ dvd.background_image }})">
       <div class="detail-content">
-      <img src="https://image.tmdb.org/t/p/original{{ dvd.poster_path }}" alt="the shawshank redemption">
+      <img src="https://image.tmdb.org/t/p/original{{ dvd.poster_image }}" alt="the shawshank redemption">
       <div class="detail-description d-flex flex-column">
           <h2 class="title">
             {{ dvd.title }}
           </h2>
           <h6>Overview</h6>
-          <p>{{dvd.overview}}</p>
-          <p><span class="badge badge-light">Genre: </span> Crime, Drama</p>
-          <p><span class="badge badge-light">Featured: </span> Tim Robbins, Morgan Freeman, Bob Gunton</p>
+          <p>{{dvd.description}}</p>
+          <p><span class="badge badge-light">Genre: </span> 
+            {{dvd.genre}}
+          </p>
+          <p><span class="badge badge-light">Director: </span> {{dvd.director}}</p>
+          <p><span class="badge badge-light">Featured: </span> 
+            {{dvd.main_actors}}
+          </p>
           <p><span class="badge badge-light">Release Date: </span> {{dvd.release_date}}</p>
-          <p><span class="badge badge-light">Rating: </span> {{"%.2f" % dvd.vote_average}}</p>
+        
           <hr class="my-4 d-none d-md-block">
           <div>
               <button type="button" class="btn btn-outline-light btn-lg" >Save to Wishlist</button>

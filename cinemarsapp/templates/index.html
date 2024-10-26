@@ -60,50 +60,24 @@
         </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <h2 class="section-title">Our Top Rated Classics</h2>
+          <h2 class="section-title">Our Top Rated Dramas</h2>
           <div class="featured-item-list">
-            <article class="featured-items">
-              <div class="card bg-dark">
-                <img src="https://image.tmdb.org/t/p/original/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">The Shawshank Redemption</h5>
-                    <p class="movie-description">Imprisoned in the 1940s for the double murder of his wife and her lover.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 9.99</p>
-                      <p class="rating">Rating: 8.69</p>
-                    </div>
-                    <a href={{url_for('main.detail', dvdid=278)}} class="btn btn-secondary">View Detail</a>
-                  </div>
-                </div>
-              </article>
-              <article class="featured-items">
-                <div class="card bg-dark" >
-                  <img src="https://image.tmdb.org/t/p/original/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">God Father</h5>
-                    <p class="movie-description">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 11.99</p>
-                      <p class="rating">Rating: 8.7</p>
-                    </div>
-                    <a href={{url_for('main.detail', dvdid=278)}} class="btn btn-secondary">View Detail</a>
-                  </div>
-                </div>
-              </article>
+            {% for i in range(0,3) %}
               <article class="featured-items">
                 <div class="card bg-dark">
-                  <img src="https://image.tmdb.org/t/p/original/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">Schindler's List</h5>
-                    <p class="movie-description">The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 10.99</p>
-                      <p class="rating">Rating: 8.57</p>
+                  <img src="https://image.tmdb.org/t/p/original/{{ drama[i].poster_image }}" class="card-img-top" alt="...">
+                    <div class="card-body text-light">
+                      <h5 class="card-title">{{ drama[i].title }}</h5>
+                      <p class="movie-description">{{ drama[i].description }}</p>
+                      <div class="d-flex justify-content-between">
+                        <p class="price">$ {{drama[i].price}}</p>
+                        <p class="rating">Rating: {{ "%.2f" % drama[i].rating}}</p>
+                      </div>
+                      <a href={{url_for('main.detail', dvd_id=drama[i].id)}} class="btn btn-secondary">View Detail</a>
                     </div>
-                    <a href={{url_for('main.detail',dvdid=278)}} class="btn btn-secondary">View Detail</a>
                   </div>
-              </div>
-            </article>
+                </article>
+              {% endfor %}
           </div>
           <div class="carousel-caption d-none d-md-block">
             <h5>Greatest Of All Times Classics</h5>
@@ -112,50 +86,24 @@
         </div>
         <div class="carousel-item">
           <!-- card list -->
-            <h2 class="section-title">Our Top Rated Thrillers</h2>
+          <h2 class="section-title">Our Top Rated Thrillers</h2>
           <div class="featured-item-list">
-            <article class="featured-items">
-              <div class="card bg-dark">
-                <img src="https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">Dark Knight</h5>
-                    <p class="movie-description">Batman battles the Joker in an attempt to save Gotham.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 9.99</p>
-                      <p class="rating">Rating: 8.69</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-secondary">View Detail</a>
-                  </div>
-                </div>
-              </article>
-              <article class="featured-items">
-                <div class="card bg-dark" >
-                  <img src="https://image.tmdb.org/t/p/original/8OKmBV5BUFzmozIC3pPWKHy17kx.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">Seven Samurai</h5>
-                    <p class="movie-description">A samurai leads a village's defense against bandits.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 11.99</p>
-                      <p class="rating">Rating: 8.7</p>
-                    </div>
-                    <a href="detail.html" class="btn btn-secondary">View Detail</a>
-                  </div>
-                </div>
-              </article>
+            {% for i in range(0,3) %}
               <article class="featured-items">
                 <div class="card bg-dark">
-                  <img src="https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">Parasite</h5>
-                    <p class="movie-description">A poor family infiltrates a wealthy household.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 10.99</p>
-                      <p class="rating">Rating: 8.57</p>
+                  <img src="https://image.tmdb.org/t/p/original/{{ thriller[i].poster_image }}" class="card-img-top" alt="...">
+                    <div class="card-body text-light">
+                      <h5 class="card-title">{{ thriller[i].title }}</h5>
+                      <p class="movie-description">{{ thriller[i].description }}</p>
+                      <div class="d-flex justify-content-between">
+                        <p class="price">$ {{thriller[i].price}}</p>
+                        <p class="rating">Rating: {{ "%.2f" % thriller[i].rating}}</p>
+                      </div>
+                      <a href={{url_for('main.detail', dvd_id=thriller[i].id)}} class="btn btn-secondary">View Detail</a>
                     </div>
-                    <a href="detail.html" class="btn btn-secondary">View Detail</a>
                   </div>
-              </div>
-            </article>
+                </article>
+              {% endfor %}
           </div>
           <div class="carousel-caption d-none d-md-block">
             <h5>Best of all Thrillers</h5>
@@ -165,48 +113,22 @@
         <div class="carousel-item">
           <h2 class="section-title">Our Top Rated Family Movies</h2>
           <div class="featured-item-list">
-            <article class="featured-items">
-              <div class="card bg-dark">
-                <img src="https://image.tmdb.org/t/p/original/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">Spirited Away</h5>
-                    <p class="movie-description">A young girl navigates a magical world to save her parents.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 9.99</p>
-                      <p class="rating">Rating: 8.69</p>
-                    </div>
-                    <a href="#" class="btn btn-secondary">View Detail</a>
-                  </div>
-                </div>
-              </article>
-              <article class="featured-items">
-                <div class="card bg-dark" >
-                  <img src="https://image.tmdb.org/t/p/original/vfJFJPepRKapMd5G2ro7klIRysq.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">Your Name.</h5>
-                    <p class="movie-description">High schoolers must adjust to switching lives in a mysterious way.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 11.99</p>
-                      <p class="rating">Rating: 8.5</p>
-                    </div>
-                    <a href="#" class="btn btn-secondary">View Detail</a>
-                  </div>
-                </div>
-              </article>
+            {% for i in range(0,3) %}
               <article class="featured-items">
                 <div class="card bg-dark">
-                  <img src="https://image.tmdb.org/t/p/original/gCI2AeMV4IHSewhJkzsur5MEp6R.jpg" class="card-img-top" alt="...">
-                  <div class="card-body text-light">
-                    <h5 class="card-title">Cinema Paradiso</h5>
-                    <p class="movie-description">A filmmaker recalls his love for cinema and a deep friendship.</p>
-                    <div class="d-flex justify-content-between">
-                      <p class="price">$ 8.99</p>
-                      <p class="rating">Rating: 8.45</p>
+                  <img src="https://image.tmdb.org/t/p/original/{{ family[i].poster_image }}" class="card-img-top" alt="...">
+                    <div class="card-body text-light">
+                      <h5 class="card-title">{{ family[i].title }}</h5>
+                      <p class="movie-description">{{ family[i].description }}</p>
+                      <div class="d-flex justify-content-between">
+                        <p class="price">$ {{family[i].price}}</p>
+                        <p class="rating">Rating: {{ "%.2f" % family[i].rating}}</p>
+                      </div>
+                      <a href={{url_for('main.detail', dvd_id=family[i].id)}} class="btn btn-secondary">View Detail</a>
                     </div>
-                    <a href="#" class="btn btn-secondary">View Detail</a>
                   </div>
-              </div>
-            </article>
+                </article>
+              {% endfor %}
           </div>
           <div class="carousel-caption d-none d-md-block pd-top">
             <h5>Best of all Family Movies</h5>

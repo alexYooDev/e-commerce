@@ -8,3 +8,7 @@ from wtforms.validators import InputRequired, email
 #   email = StringField('Your Email', validators=[InputRequired(), email()])
 #   phone = StringField('Your Phone Number', validators=[InputRequired()])
 #   submit = SubmitField('Send to Agent')
+
+class SearchForm(FlaskForm):
+  search = StringField('Search title, actors, genres')
+  sumbit = SubmitField('Search')

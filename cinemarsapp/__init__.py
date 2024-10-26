@@ -10,14 +10,17 @@ def create_app():
   app = Flask(__name__)
   
   app.debug = True
-  app.secret_key = os.getenv('secret_key')
+  app.secret_key = 'my_cinemars_secret_key'
   
-  app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URI')
+  app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cinemars.sqlite'
   
   # link db with app
-  # db.init_app(app)
+  db.init_app(app)
   
   from . import views
   app.register_blueprint(views.bp)
+  
+  from . import admin
+  app.register_blueprint(admin.bp)
   
   return app
