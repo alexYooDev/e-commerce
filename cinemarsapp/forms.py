@@ -12,3 +12,4 @@ from wtforms.validators import InputRequired, email
 class SearchForm(FlaskForm):
   search = StringField('Search title, actors, genres')
   sumbit = SubmitField('Search')
+  

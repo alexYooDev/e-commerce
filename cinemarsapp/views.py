@@ -1,7 +1,9 @@
-from flask import Blueprint, render_template
-from .models import DVD,Genre,Actor, dvd_genre_association, dvd_actor_association
+from flask import Blueprint, render_template, request, session, redirect, url_for, abort
+from .models import DVD,Genre, Order, dvd_genre_association
 from . import db
 import traceback
+from random import randint
+from datetime import datetime
 
 bp = Blueprint('main', __name__)
 
@@ -510,10 +512,85 @@ def index():
   
   return render_template('index.html', drama_dvd = drama_dvd, thriller_dvd=thriller_dvd, family_dvd=family_dvd)
 
-@bp.route('/detail/<int:dvd_id>')
+@bp.route('/detail/<int:dvd_id>', methods=['GET','POST'])
 def detail(dvd_id):
   dvd_detail = db.session.query(DVD).filter(DVD.id == dvd_id).one()
   return render_template('detail.html', dvd = dvd_detail)
+
+@bp.route('/order', methods=['GET', 'POST'])
+def add_order():  
+    dvd_id = request.values.get('dvd_id')
+    print(f"dvd: {dvd_id}")
+    
+    if 'order_id' in session.keys():
+        order = db.session.scalar(db.select(Order).where(Order.id == session['order_id']))
+    else:
+        order = None
+        
+    if order is None:
+        order = Order(status='added', firstname='', lastname='', email=str(randint(0,9999)), phone=str(randint(0,9999)), total_cost=0.00, date=datetime.now())
+        try:
+            db.session.add(order)
+            db.session.commit()
+            session['order_id'] = order.id
+        except:
+            traceback.print_exc()
+            print("Order addition failed")
+            order = None
+    total_price = 0
+    if order is not None:
+        for dvd in order.dvds:
+            total_price += dvd.price
+    
+    if dvd_id is not None and order is not None:
+        dvd = db.session.scalar(db.select(DVD).where(DVD.id == dvd_id))
+        try:
+            order.dvds.append(dvd)
+            for dvd in order.dvds:
+                total_price += dvd.price
+            order.total_cost = total_price
+            db.session.commit()
+        except:
+            traceback.print_exc()
+            return "Failed"
+        return redirect(url_for('main.add_order'))
+    # order = db.session.query(DVD).filter(DVD.id == dvd_id).one()
+    return render_template('basket.html', order=order, total_price = total_price)
+
+@bp.route('/remove-orderitem', methods=['GET','POST'])
+def remove_orderitem():
+    id = request.values.get('id')
+    print(f"Id for dvd to remove is: {id}")
+    
+    if 'order_id' in session:
+        order = db.session.scalar(db.select(Order).where(Order.id == session['order_id']))
+        if not order:
+            print('Nothing to delete')
+        
+        dvd_to_remove = db.session.scalar(db.select(DVD).where(DVD.id == id))
+        print(f"Removing {dvd_to_remove.title}")
+        
+        try:
+            order.dvds.remove(dvd_to_remove)
+            db.session.commit()
+        except:
+            print("error occured while removing order item")
+            abort(500)
+    return redirect(url_for('main.add_order'))
+
+@bp.route('/empty-order')
+def empty_order():
+    if 'order_id' in session.keys():
+        order = db.session.scalar(db.session(Order).where(Order.id == 'order_id'))
+        for dvd in order.dvds:
+            order.dvds.remove(dvd)
+        session.pop('order_id')
+        db.session.commit()
+        print("emptied basket")
+    else:
+        print("No order to empty out!")
+        return redirect(url_for('main.index'))
+    return redirect(url_for('main.add_order'))
 
 @bp.route('/movies_all')
 def get_movies_all():
@@ -525,7 +602,11 @@ def get_series_all():
   dvd = DVD.query.filter(DVD.category=='series').order_by(DVD.title).all()
   return render_template('dvd_all.html', dvd=dvd)
 
-@bp.route('/search/genres/', methods=['POST','GET'])
+@bp.route('/search/genres/')
 def get_by_genres(genre_id):
   dvd = DVD.query.filter(DVD.genres.has(id=genre_id))
   return render_template('dvd_all.html', dvd=dvd)
+
+@bp.route('/order')
+def get_order(dvd_id):
+    return render_template('/')

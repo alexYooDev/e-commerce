@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<section class="page-section-layout">
+  <article class="mx-4 my-4">
+      <h1 >My Order Basket</h1>
+        <div class="d-flex justify-content-center flex-column">
+          {% for dvd in order.dvds%}
+          <div class="jumbotron bg-dark py-4">
+              <div class="d-flex">
+                <image class="order-image mx-4" src="https://image.tmdb.org/t/p/original{{ dvd.poster_image }}">
+                <div class='d-flex flex-column mx-4'>
+                  <h3 class="display-12 mb-4">{{ dvd.title }}</h3>
+                  <hr class="my-2">
+                  <div>
+                    <p><span class="badge badge-light">Price: </span> $ {{ "%.2f" % dvd.price }} </p>
+                    <p><span class="badge badge-light">Stock: </span> {% if dvd.inStock %} In Stock! {% endif %}</p>
+                  </div>
+                  <form action={{url_for('main.remove_orderitem')}} class="align-middle">
+                    <input type="hidden" id="id" name="id" value="{{dvd.id}}">
+                    <button type="submit" href="{{url_for('main.remove_orderitem')}}" class="btn btn-outline-light">Remove</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      <h3>Total: $ {{ total_price }}</h3>
+      <div>
+        <a class="btn btn-outline-light" href={{url_for('main.empty_order')}}>Empty Basket</a>
+      </div>
+  </article>
+</section>
+{% endblock %}

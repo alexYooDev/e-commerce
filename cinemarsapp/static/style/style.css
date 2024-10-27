@@ -135,6 +135,10 @@ html, body {
   color: white;
 }
 
+.order-image {
+  height: 20vh;
+}
+
 
 footer {
   padding-top: 20px;

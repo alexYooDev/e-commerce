@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 import os 
@@ -22,5 +22,13 @@ def create_app():
   
   from . import admin
   app.register_blueprint(admin.bp)
+  
+  @app.errorhandler(404)
+  def not_founed(error):
+    return render_template('error.html', error=error)
+  
+  @app.errorhandler(500)
+  def internal_error(error):
+    return render_template('error.html', error=error)
   
   return app
