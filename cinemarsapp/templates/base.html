@@ -22,10 +22,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href={{url_for('main.get_movies_all')}}>Movies</a>
+            <a class="nav-link" href={{url_for('main.get_dvd_all', category='movie')}}>Movies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href={{url_for('main.get_series_all')}}>Series</a>
+            <a class="nav-link" href={{url_for('main.get_dvd_all', category='series')}}>Series</a>
           </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">

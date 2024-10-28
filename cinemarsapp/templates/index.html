@@ -17,7 +17,7 @@
                 Step into the world of your Movie world!
               </h2>
               <p>Simply shop and add to the collections of your favorites, We got your sophisticated tastes of movies covered! </p>
-              <a href={{url_for('main.get_movies_all')}} class="btn btn-outline-light">Learn More</a>
+              <a href={{url_for('main.get_dvd_all', category='movie')}} class="btn btn-outline-light">Learn More</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -27,7 +27,7 @@
                 Add your awaited new series to your collections!
               </h2>
               <p>Simply shop and add to the collections of your favorites, We got your newest release of series seasons covered! </p>
-              <a href="#" class="btn btn-outline-light">Learn More</a>
+              <a href={{url_for('main.get_dvd_all', category='series')}} class="btn btn-outline-light">Learn More</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -74,6 +74,7 @@
                         <p class="rating">Rating: {{ "%.2f" % drama.rating}}</p>
                       </div>
                       <a href={{url_for('main.detail', dvd_id=drama.id)}} class="btn btn-secondary">View Detail</a>
+                      <a href={{url_for("main.detail", dvd_id=drama.id)}} class="btn btn-secondary">Add to Wishlist</a>
                     </div>
                   </div>
                 </article>
@@ -100,6 +101,7 @@
                         <p class="rating">Rating: {{ "%.2f" % thriller.rating}}</p>
                       </div>
                       <a href={{url_for('main.detail', dvd_id=thriller.id)}} class="btn btn-secondary">View Detail</a>
+                      <a href={{url_for("main.detail", dvd_id=thriller.id)}} class="btn btn-secondary">Add to Wishlist</a>
                     </div>
                   </div>
                 </article>
@@ -125,6 +127,7 @@
                         <p class="rating">Rating: {{ "%.2f" % family.rating}}</p>
                       </div>
                       <a href={{url_for('main.detail', dvd_id=family.id)}} class="btn btn-secondary">View Detail</a>
+                      <a href={{url_for("main.detail", dvd_id=family.id)}} class="btn btn-secondary">Add to Wishlist</a>
                     </div>
                   </div>
                 </article>

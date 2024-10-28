@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, request, session, redirect, url_for, abort
 from .models import DVD,Genre, Order, dvd_genre_association
 from . import db
+from .forms import CheckoutForm
+
 import traceback
 from random import randint
 from datetime import datetime
@@ -592,21 +594,46 @@ def empty_order():
         return redirect(url_for('main.index'))
     return redirect(url_for('main.add_order'))
 
-@bp.route('/movies_all')
-def get_movies_all():
-  dvd = DVD.query.filter(DVD.category=='movie').order_by(DVD.title).all()
-  return render_template('dvd_all.html', dvd=dvd)
+@bp.route('/checkout', methods=['GET', 'POST'])
+def checkout_order():
+    
+    form = CheckoutForm()
+    
+    if 'order_id' in session:
+        order = db.session.scalar(db.select(Order).where(Order.id == session['order_id']))
+        if not order.dvds:
+            return redirect(url_for(request.referrer))
+        if form.validate_on_submit():
+            order.status = 'checkedout'
+            order.firstname = form.firstname.data
+            order.lastname = form.lastname.data
+            order.phone = form.phone.data
+            order.email = form.email.data
+            total_cost = 0
+            for dvd in order.dvds:
+                total_cost += dvd.price
+            order.total_cost = total_cost
+            order.date = datetime.now()
+            
+            try:
+                db.session.commit()
+                empty_order()
+                print('Order checked out and deleted')
+            except:
+                print('error occured while checking out')
+            
+    return render_template('checkout.html', form=form) 
 
-@bp.route('/series_all')
-def get_series_all():
-  dvd = DVD.query.filter(DVD.category=='series').order_by(DVD.title).all()
+@bp.route('/dvds_all/<string:category>')
+def get_dvd_all(category):
+  dvd = {}
+  if category == 'movie':
+    dvd = db.session.scalars(db.select(DVD).where(DVD.category == 'movie'))
+  if category == 'series':
+    dvd = db.session.scalars(db.select(DVD).where(DVD.category == 'series'))  
   return render_template('dvd_all.html', dvd=dvd)
 
 @bp.route('/search/genres/')
 def get_by_genres(genre_id):
   dvd = DVD.query.filter(DVD.genres.has(id=genre_id))
   return render_template('dvd_all.html', dvd=dvd)
-
-@bp.route('/order')
-def get_order(dvd_id):
-    return render_template('/')

@@ -72,7 +72,8 @@ class User(db.Model):
   first_name = db.Column(db.String(64))
   last_name = db.Column(db.String(64))
   email = db.Column(db.String(128), unique=True)
-  phone = db.Column(db.String(32), unique=True)
+  phone = db.Column(db.String(128), unique=True)
+  address = db.Column(db.String(128))
 
 class Order (db.Model):
   __tablename__ = 'orders'

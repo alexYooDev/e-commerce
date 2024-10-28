@@ -17,6 +17,8 @@ def create_app():
   # link db with app
   db.init_app(app)
   
+  Bootstrap(app)
+  
   from . import views
   app.register_blueprint(views.bp)
   
