@@ -140,6 +140,8 @@ def get_dvd_all(category):
     dvd = db.session.scalars(db.select(DVD).where(DVD.category == 'movie'))
   if category == 'series':
     dvd = db.session.scalars(db.select(DVD).where(DVD.category == 'series'))  
+  if category == 'intl':
+    dvd = db.session.scalars(db.select(DVD).where(DVD.original_title != DVD.title))
   return render_template('dvd_all.html', dvd=dvd)
 
 @bp.route('/search/genres/<int:genre_id>')
