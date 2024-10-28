@@ -580,8 +580,8 @@ def remove_orderitem():
 
 @bp.route('/empty-order')
 def empty_order():
-    if 'order_id' in session.keys():
-        order = db.session.scalar(db.session(Order).where(Order.id == 'order_id'))
+    if 'order_id' in session:
+        order = db.session.scalar(db.select(Order).where(Order.id == session['order_id']))
         for dvd in order.dvds:
             order.dvds.remove(dvd)
         session.pop('order_id')

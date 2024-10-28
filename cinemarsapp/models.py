@@ -66,6 +66,14 @@ inquiry_order_association = db.Table(
     db.Column('inquiry_id', db.Integer, db.ForeignKey('inquiries.id'), primary_key=True)
 )
 
+class User(db.Model):
+  __tablename__ = 'users'
+  id = db.Column(db.Integer, primary_key=True)
+  first_name = db.Column(db.String(64))
+  last_name = db.Column(db.String(64))
+  email = db.Column(db.String(128), unique=True)
+  phone = db.Column(db.String(32), unique=True)
+
 class Order (db.Model):
   __tablename__ = 'orders'
   id = db.Column(db.Integer, primary_key=True)
