@@ -9,7 +9,4 @@ class CheckoutForm(FlaskForm):
   phone = StringField('Your Phone Number', validators=[InputRequired()])
   submit = SubmitField('Checkout Order')
 
-# class SearchForm(FlaskForm):
-#   search = StringField('Search title, actors, genres')
-#   sumbit = SubmitField('Search')
   
