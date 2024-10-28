@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for, abort
-from .models import DVD,Genre, Order, dvd_genre_association
+from flask import Blueprint, render_template, request, session, redirect, url_for, abort, flash
+from .models import DVD,Genre, Order, Actor, dvd_genre_association, dvd_actor_association
 from . import db
+from sqlalchemy import or_
 from .forms import CheckoutForm
 
 import traceback
@@ -553,8 +554,8 @@ def add_order():
             order.total_cost = total_price
             db.session.commit()
         except:
-            traceback.print_exc()
-            return "Failed"
+            flash("You've already have this DVD in your basket!")
+            return redirect(request.referrer)
         return redirect(url_for('main.add_order'))
     # order = db.session.query(DVD).filter(DVD.id == dvd_id).one()
     return render_template('basket.html', order=order, total_price = total_price)
@@ -567,7 +568,7 @@ def remove_orderitem():
     if 'order_id' in session:
         order = db.session.scalar(db.select(Order).where(Order.id == session['order_id']))
         if not order:
-            print('Nothing to delete')
+            flash('There is no DVD to remove from your basket!')
         
         dvd_to_remove = db.session.scalar(db.select(DVD).where(DVD.id == id))
         print(f"Removing {dvd_to_remove.title}")
@@ -588,10 +589,10 @@ def empty_order():
             order.dvds.remove(dvd)
         session.pop('order_id')
         db.session.commit()
-        print("emptied basket")
+        flash("We've emptied your basket!")
     else:
-        print("No order to empty out!")
-        return redirect(url_for('main.index'))
+        print("There is no order to empty out!")
+        return redirect(request.referrer)
     return redirect(url_for('main.add_order'))
 
 @bp.route('/checkout', methods=['GET', 'POST'])
@@ -618,9 +619,9 @@ def checkout_order():
             try:
                 db.session.commit()
                 empty_order()
-                print('Order checked out and deleted')
+                flash('Thank you for your purchase! One of our team members will contact you via email soon.')
             except:
-                print('error occured while checking out')
+                flash('The error has occured while checking your order out!')
             
     return render_template('checkout.html', form=form) 
 
@@ -633,7 +634,32 @@ def get_dvd_all(category):
     dvd = db.session.scalars(db.select(DVD).where(DVD.category == 'series'))  
   return render_template('dvd_all.html', dvd=dvd)
 
-@bp.route('/search/genres/')
-def get_by_genres(genre_id):
-  dvd = DVD.query.filter(DVD.genres.has(id=genre_id))
+@bp.route('/search/genres/<int:genre_id>')
+def get_dvd_by_genres(genre_id):
+    
+  dvd = db.session.query(DVD).join(dvd_genre_association).join(Genre).filter(Genre.id == genre_id).all()
+  
+  return render_template('dvd_all.html', dvd=dvd)
+
+@bp.route('/search', methods=["GET", "POST"])
+def search_dvd():
+  search_query = f"%{request.args.get('search')}%"
+  
+  dvd = (
+        db.session.query(DVD)
+        .outerjoin(dvd_actor_association)
+        .outerjoin(Actor)
+        .outerjoin(dvd_genre_association)
+        .outerjoin(Genre)
+        .filter(
+            or_(
+                DVD.title.like(search_query),
+                DVD.description.like(search_query),
+                DVD.original_title.like(search_query),
+                Actor.name.like(search_query),
+                Genre.name.like(search_query)
+            )
+        )
+        .all()
+    )   
   return render_template('dvd_all.html', dvd=dvd)

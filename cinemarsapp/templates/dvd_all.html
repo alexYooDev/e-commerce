@@ -5,6 +5,15 @@
 <section class="page-section-layout">
   <div class="container-fluid">
     <article class="row justify-content-center">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-danger" role="alert">
+            {% for message in messages %}
+              {{ message }} 
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
     {% for item in dvd %}
       <div class="card bg-dark" >
           <img src={{"https://image.tmdb.org/t/p/original/"+item.poster_image}} class="card-img-top" alt={{item.title}}>
