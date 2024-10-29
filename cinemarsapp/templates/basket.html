@@ -1,46 +1,47 @@
 {% extends 'base.html' %}
 
-{% block head %}
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <div class="alert alert-primary" role="alert">
-        {% for message in messages %}
-          {{ message }}
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}
-{% endblock %}
-
 {% block main %}
 <section class="page-section-layout">
   <article class="mx-4 my-4">
       <h1 >My Order Basket</h1>
-        <div class="d-flex justify-content-center flex-column">
-          {% for dvd in order.dvds%}
-            <div class="jumbotron bg-dark py-4">
-              <div class="d-flex">
-                <image class="order-image mx-4" src="https://image.tmdb.org/t/p/original{{ dvd.poster_image }}">
-                <div class='d-flex flex-column mx-4'>
-                  <h3 class="display-12 mb-4">{{ dvd.title }}</h3>
-                  <hr class="my-2">
-                  <div>
-                    <p><span class="badge badge-light">Price: </span> $ {{ "%.2f" % dvd.price }} </p>
-                    <p><span class="badge badge-light">Stock: </span class="text-success"> {% if dvd.inStock %} In Stock! {% endif %}</p>
+        {% if order.dvds %}
+          <div class="d-flex justify-content-center flex-column">
+            {% for dvd in order.dvds%}
+              <div class="jumbotron bg-dark py-4">
+                <div class="d-flex">
+                  <image class="order-image mx-4" src="https://image.tmdb.org/t/p/original{{ dvd.poster_image }}">
+                  <div class='d-flex flex-column mx-4'>
+                    <h3 class="display-12 mb-4">{{ dvd.title }}</h3>
+                    <hr class="my-2">
+                    <div>
+                      <p><span class="badge badge-light">Price: </span> $ {{ "%.2f" % dvd.price }} </p>
+                      {% if dvd.in_stock %}
+                        <p><span class="badge badge-success">In Stock </span class="text-success">
+                        <p class="text-success">In stock dvds typically takes 2-5 business days to deliver in Brisbane area</p>
+                      {% else %}
+                        <p><span class="badge badge-danger">Out of Stock </span class="text-success">
+                        <p>Sorry please allow us about 14 business days to re-stock</p>
+                      {% endif %}
+                      <p>
+                    </div>
+                    <form action={{url_for('main.remove_orderitem')}} class="align-middle">
+                      <input type="hidden" id="id" name="id" value="{{dvd.id}}">
+                      <button class="btn btn-outline-danger" type="submit" href="{{url_for('main.remove_orderitem')}}">Remove</button>
+                    </form>
                   </div>
-                  <form action={{url_for('main.remove_orderitem')}} class="align-middle">
-                    <input type="hidden" id="id" name="id" value="{{dvd.id}}">
-                    <button class="btn btn-outline-danger" type="submit" href="{{url_for('main.remove_orderitem')}}">Remove</button>
-                  </form>
                 </div>
               </div>
-            </div>
-          {% endfor %}
-        </div>
+            {% endfor %}
+          </div>
+        {% else %} 
+          <div>
+            <h1 class="text-center">No Order Items to Display in Your Basket!</h1>
+          </div>
+        {% endif %}
       <h3>Total: $ {{ total_price }}</h3>
       <div>
         <a class="btn btn-outline-danger" href={{url_for('main.empty_order')}}>Empty Basket</a>
-        <a class="btn btn-outline-success" href={{url_for('main.checkout_order')}}>Go to Checkout</a>
+        <a class="btn btn-outline-success" href={{url_for('main.checkout_order')}}>Checkout</a>
       </div>
   </article>
 </section>

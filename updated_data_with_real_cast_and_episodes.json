@@ -788,9 +788,15 @@
         "category": "series",
         "price": 13.58,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 1122,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Mayumi Tanaka",
+            "Kazuya Nakai",
+            "Akemi Okamura",
+            "Kappei Yamaguchi",
+            "Hiroaki Hirata"
+        ]
     },
     {
         "id": 60625,
@@ -811,9 +817,15 @@
         "category": "series",
         "price": 11.72,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 71,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Chris Parnell",
+            "Spencer Grammer",
+            "Sarah Chalke",
+            "Ian Cardoni",
+            "Harry Belden"
+        ]
     },
     {
         "id": 31911,
@@ -834,9 +846,15 @@
         "category": "series",
         "price": 14.8,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 64,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Romi Park",
+            "Rie Kugimiya",
+            "Shin-ichiro Miki",
+            "Fumiko Orikasa",
+            "Megumi Takamoto"
+        ]
     },
     {
         "id": 60059,
@@ -855,9 +873,15 @@
         "category": "series",
         "price": 10.41,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 63,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Bob Odenkirk",
+            "Jonathan Banks",
+            "Rhea Seehorn",
+            "Tony Dalton",
+            "Giancarlo Esposito"
+        ]
     },
     {
         "id": 87108,
@@ -875,9 +899,15 @@
         "category": "series",
         "price": 13.99,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 5,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Jared Harris",
+            "Stellan Skarsg\u00e5rd",
+            "Emily Watson",
+            "Paul Ritter",
+            "Jessie Buckley"
+        ]
     },
     {
         "id": 70785,
@@ -896,9 +926,15 @@
         "category": "series",
         "price": 11.28,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 27,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Amybeth McNulty",
+            "Geraldine James",
+            "R.H. Thomson",
+            "Lucas Jade Zumann",
+            "Joanna Douglas"
+        ]
     },
     {
         "id": 92685,
@@ -921,9 +957,12 @@
         "category": "series",
         "price": 15.41,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 43,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Sarah-Nicole Robles",
+            "Alex Hirsch"
+        ]
     },
     {
         "id": 62741,
@@ -943,9 +982,15 @@
         "category": "series",
         "price": 10.3,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 25,
+        "director": "Akitaro Daichi",
+        "main_actors": [
+            "Yui Horie",
+            "Suzuko Mimori",
+            "Daisuke Namikawa",
+            "Daisuke Kishio",
+            "Satomi Sato"
+        ]
     },
     {
         "id": 85937,
@@ -965,9 +1010,15 @@
         "category": "series",
         "price": 11.62,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 63,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Natsuki Hanae",
+            "Akari Kito",
+            "Hiro Shimono",
+            "Yoshitsugu Matsuoka",
+            "Nobuhiko Okamoto"
+        ]
     },
     {
         "id": 1429,
@@ -987,9 +1038,15 @@
         "category": "series",
         "price": 13.58,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 87,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Yuki Kaji",
+            "Yui Ishikawa",
+            "Marina Inoue",
+            "Kisho Taniyama",
+            "Hiro Shimono"
+        ]
     },
     {
         "id": 42705,
@@ -1010,9 +1067,15 @@
         "category": "series",
         "price": 15.03,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 126,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Kohei Kiyasu",
+            "Rikiya Koyama",
+            "Wataru Takagi",
+            "Keiji Fujiwara",
+            "Jurota Kosugi"
+        ]
     },
     {
         "id": 135157,
@@ -1033,9 +1096,15 @@
         "category": "series",
         "price": 14.01,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 30,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Lee Jae-wook",
+            "Go Youn-jung",
+            "Minhyun",
+            "Shin Seung-ho",
+            "Yu Jun-sang"
+        ]
     },
     {
         "id": 221851,
@@ -1055,9 +1124,15 @@
         "category": "series",
         "price": 12.31,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 16,
+        "director": "Park Won-gook",
+        "main_actors": [
+            "Park Min-young",
+            "Na In-woo",
+            "Lee Yi-kyung",
+            "Song Ha-yoon",
+            "Lee Gi-kwang"
+        ]
     },
     {
         "id": 68349,
@@ -1076,9 +1151,15 @@
         "category": "series",
         "price": 12.08,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 16,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Lee Sung-kyoung",
+            "Nam Joo-hyuk",
+            "Kyung Soo-jin",
+            "Lee Jae-yoon",
+            "Cho Hye-jeong"
+        ]
     },
     {
         "id": 95557,
@@ -1099,8 +1180,12 @@
         "category": "series",
         "price": 14.15,
         "runtime": 0,
-        "episodes": 0,
-        "director": "Anonymous",
-        "main_actors": []
+        "episodes": 24,
+        "director": "Director Unknown",
+        "main_actors": [
+            "Steven Yeun",
+            "Sandra Oh",
+            "J.K. Simmons"
+        ]
     }
 ]

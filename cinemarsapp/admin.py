@@ -58,7 +58,6 @@ def dbseed():
         id = dvd['id'],
         title = dvd['title'],
         original_title = dvd['original_title'],
-        adult=dvd['adult'],
         description=dvd['overview'],
         category=dvd['category'],
         director=dvd['director'],

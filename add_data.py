@@ -8,7 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 file_path = './cinemarsapp/static/data/data.json'
 
 gen_path = './cinemarsapp/static/data/genres.json'
-act_path = './cinemarsapp/static/data/actors.json.json'
+act_path = './cinemarsapp/static/data/actors.json'
 
 series_path = './cinemarsapp/static/data/series.json'
 new_path = './cinemarsapp/static/data/data.json'
@@ -27,7 +27,6 @@ for dvd_data in data:
   dvd = DVD(
     title = dvd_data['title'],
     original_title = dvd_data['original_title'],
-    adult=dvd_data['adult'],
     description=dvd_data['overview'],
     background_image=dvd_data['backdrop_path'],
     poster_image=dvd_data['poster_path'],

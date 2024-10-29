@@ -139,6 +139,20 @@ html, body {
   height: 20vh;
 }
 
+.alert {
+  position: absolute;
+  top: 56px;
+  z-index: 100;
+  overflow: auto;
+  overflow-y: auto;
+}
+
+.order-list-item {
+  background-color: #31363F;
+  border-radius: 8px;
+  padding: 1px;
+  margin: 4px;
+}
 
 footer {
   padding-top: 20px;

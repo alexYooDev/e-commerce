@@ -22,35 +22,35 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href={{url_for('main.get_dvd_all', category='movie')}}>Movies</a>
+            <a class="nav-link" href={{url_for('main.get_dvds', category='movie')}}>Movies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href={{url_for('main.get_dvd_all', category='series')}}>Series</a>
+            <a class="nav-link" href={{url_for('main.get_dvds', category='series')}}>Series</a>
           </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
             Genres
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=28)}}>Action</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=1)}}>Adventure</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=80)}}>Crime</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=35)}}>Comedy</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=18)}}>Drama</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=14)}}>Fantasy</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=10751)}}>Family</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=36)}}>History</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=10749)}}>Romance</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=53)}}>Triller</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=10752)}}>War</a>
-            <a class="dropdown-item" href={{url_for('main.get_dvd_by_genres', genre_id=37)}}>Western</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=28)}}>Action</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=1)}}>Adventure</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=80)}}>Crime</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=35)}}>Comedy</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=18)}}>Drama</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=14)}}>Fantasy</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=10751)}}>Family</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=36)}}>History</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=10749)}}>Romance</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=53)}}>Thriller</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=10752)}}>War</a>
+            <a class="dropdown-item" href={{url_for('main.get_dvds_by_genres', genre_id=37)}}>Western</a>
           </div>
           </li>
           <li class="nav-item">
               <a class="nav-link" href={{url_for('main.add_order')}}>My Basket</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">My Wishlist</a>
+              <a class="nav-link" href={{url_for('main.add_wishlist')}}>My Wishlist</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 ml-5" action="{{url_for('main.search_dvd')}}">
@@ -63,6 +63,15 @@
   </header>
   <!--  Main Page Section -->
   <main>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-primary" role="alert">
+            {% for message in messages %}
+              {{ message }} 
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
     {% block main %} {% endblock %}
   </main>
   <footer class="container-fluid">

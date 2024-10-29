@@ -7,6 +7,7 @@ class CheckoutForm(FlaskForm):
   lastname = StringField('Your Last Name', validators=[InputRequired()])
   email = StringField('Your Email', validators=[InputRequired(), email()])
   phone = StringField('Your Phone Number', validators=[InputRequired()])
+  address = StringField('Your Address', validators=[InputRequired()])
   submit = SubmitField('Checkout Order')
 
   

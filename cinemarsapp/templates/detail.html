@@ -31,24 +31,33 @@
             {% endfor %}
           </p>
           {% endif %}
+          {% if dvd.episodes > 0 %}
+          <p><span class="badge badge-light">Epsiodes: </span> 
+            Total of {{ dvd.episodes }} episodes
+          </p>
+          {% endif %}
+          {% if dvd.running_time > 0 %}
+          <p><span class="badge badge-light">Running Time: </span> 
+            {{ dvd.running_time }} minutes
+          </p>
+          {% endif %}
           <p><span class="badge badge-light">Release Date: </span> {{dvd.release_date}}</p>
           <p><span class="badge badge-light">Price: </span> $ {{"%.2f" % dvd.price}}</p>
-          <hr class="my-4 d-none d-md-block">
-          {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              <div class="alert alert-danger" role="alert">
-                {% for message in messages %}
-                  {{ message }} 
-                {% endfor %}
-              </div>
-            {% endif %}
-          {% endwith %}
-          <div class='d-flex align-items-between'>
-            <form class="" action={{url_for('main.add_order', dvd_id=dvd.id )}}>
+          {% if dvd.in_stock > 0 %}
+          <p><span class="badge badge-success">In Stock</span></p>
+          {% else %}
+          <span class="badge badge-danger">Out of Stock</span> 
+          <p><span class="badge badge-danger"></span></p>
+          {% endif %}
+          <div class='d-flex'>
+            <form class="mx-2" action={{url_for('main.add_order', dvd_id=dvd.id )}}>
               <input type='hidden' id='dvd_id' name='dvd_id' value="{{dvd.id}}"/>
               <button type="sumbit" class="btn btn-outline-light btn-lg">Add To Basket</button>
             </form>
-            <button type="submit" class="btn btn-outline-light btn-lg" >Save to Wishlist</button>
+            <form class="mx-2" action={{url_for('main.add_wishlist', dvd_id=dvd.id )}}>
+              <input type='hidden' id='dvd_id' name='dvd_id' value="{{dvd.id}}"/>
+              <button type="submit" class="btn btn-outline-light btn-lg" >Save to Wishlist</button>
+            </form>
           </div>
         </div>
       </div>
