@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block main %}
-  <section class="page-section-layout">
+  <section class="page-section-layout text-center">
     <h1>Error</h1>
-    <p>Sorry The Page Encountered an Error!</p>
+    <p class="lead">Sorry The Page Encountered an Error!</p>
+    <p>What Happened? {{error}}</p>
   </section>
 {% endblock %}

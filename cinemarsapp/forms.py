@@ -3,11 +3,11 @@ from wtforms.fields import SubmitField, StringField
 from wtforms.validators import InputRequired, email
 
 class CheckoutForm(FlaskForm):
-  firstname = StringField('Your First Name', validators=[InputRequired()])
-  lastname = StringField('Your Last Name', validators=[InputRequired()])
-  email = StringField('Your Email', validators=[InputRequired(), email()])
-  phone = StringField('Your Phone Number', validators=[InputRequired()])
-  address = StringField('Your Address', validators=[InputRequired()])
-  submit = SubmitField('Checkout Order')
+  firstname = StringField("Your First Name", validators=[InputRequired()])
+  lastname = StringField("Your Last Name", validators=[InputRequired()])
+  email = StringField("Your Email", validators=[InputRequired(), email()])
+  phone = StringField("Your Phone Number", validators=[InputRequired()])
+  address = StringField("Your Address", validators=[InputRequired()])
+  submit = SubmitField("Checkout Order")
 
   

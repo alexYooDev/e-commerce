@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends "base.html"%}
 
 
 {% block main %}
@@ -49,13 +49,13 @@
           <span class="badge badge-danger">Out of Stock</span> 
           <p><span class="badge badge-danger"></span></p>
           {% endif %}
-          <div class='d-flex'>
-            <form class="mx-2" action={{url_for('main.add_order', dvd_id=dvd.id )}}>
-              <input type='hidden' id='dvd_id' name='dvd_id' value="{{dvd.id}}"/>
+          <div class="d-flex">
+            <form class="mx-2" action={{url_for("main.add_order", dvd_id=dvd.id )}}>
+              <input type="hidden" id="dvd_id" name="dvd_id" value="{{dvd.id}}"/>
               <button type="sumbit" class="btn btn-outline-light btn-lg">Add To Basket</button>
             </form>
-            <form class="mx-2" action={{url_for('main.add_wishlist', dvd_id=dvd.id )}}>
-              <input type='hidden' id='dvd_id' name='dvd_id' value="{{dvd.id}}"/>
+            <form class="mx-2" action={{url_for("main.add_wishlist", dvd_id=dvd.id )}}>
+              <input type="hidden" id="dvd_id" name="dvd_id" value="{{dvd.id}}"/>
               <button type="submit" class="btn btn-outline-light btn-lg" >Save to Wishlist</button>
             </form>
           </div>

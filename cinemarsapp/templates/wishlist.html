@@ -1,9 +1,10 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block main %}
 
 <section class="page-section-layout">
-  <div class="container-fluid">
+  <div class="container-fluid mx-4 my-4">
+    <h1 >My Wishlist</h1>
     {% if wishlist %}
       <article class="row justify-content-center">
         {% for item in wishlist %}
@@ -18,7 +19,7 @@
               </div>
               <div class="d-flex justify-content-between">
                 <a href={{url_for("main.detail", dvd_id=item.id)}} class="btn btn-secondary">View Detail</a>
-                <form action={{url_for('main.remove_wishlist_item')}} class="align-middle">
+                <form action={{url_for("main.remove_wishlist_item")}} class="align-middle">
                   <input type="hidden" id="id" name="id" value="{{item.id}}">
                   <button class="btn btn-outline-danger" type="submit" href="{{url_for("main.remove_wishlist_item")}}">Remove</button>
                 </form>
@@ -29,7 +30,7 @@
       </article> 
     {% else %} 
       <div>
-        <h1 class="text-center">No Wishlist items to display!</h1>
+        <h2 class="text-center">No Wishlist items to display!</h2>
       </div>
     {% endif %}
   </div>

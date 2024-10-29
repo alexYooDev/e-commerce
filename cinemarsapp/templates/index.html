@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block main %}
   <section class="landing-page-section-layout">
@@ -17,7 +17,7 @@
                 Step into the world of your Movie world!
               </h2>
               <p>Simply shop and add to the collections of your favorites, We got your sophisticated tastes of movies covered! </p>
-              <a href={{url_for('main.get_dvds', category='movie')}} class="btn btn-outline-light">Find our movies</a>
+              <a href={{url_for("main.get_dvds", category="movie")}} class="btn btn-outline-light">Find our movies</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -27,7 +27,7 @@
                 Add your awaited new series to your collections!
               </h2>
               <p>Simply shop and add to the collections of your favorites, We got your newest release of series seasons covered! </p>
-              <a href={{url_for('main.get_dvds', category='series')}} class="btn btn-outline-light">Find our series</a>
+              <a href={{url_for("main.get_dvds", category="series")}} class="btn btn-outline-light">Find our series</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -36,7 +36,7 @@
               <h2>International Shows?</h2>
               <p>Going above and beyond your expectation, We have numbers of international movies and series in stock!</p>
               <p>To promote the regional filmmakers and introduce their masterpieces to the new audience, we are offering <strong>20% off!</strong></p>
-              <a href={{url_for('main.get_dvds', category='intl')}} class="btn btn-outline-light">Find international shows</a>
+              <a href={{url_for("main.get_dvds", category="intl")}} class="btn btn-outline-light">Find international shows</a>
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@
     </div>
     <article class="container-fluid category-container">
       <div class="row justify-content-center">
-        <a class="text-light text-decoration-none" href={{url_for('main.get_dvds_by_genres', genre_id=28)}}>
+        <a class="text-light text-decoration-none" href={{url_for("main.get_dvds_by_genres", genre_id=28)}}>
           <div class="card bg-dark  category-card" >
             <img src="https://image.tmdb.org/t/p/original/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg" class="card-img-top" alt="...">
             <div class="card-body card-img-overlay category-overlay-desc">
@@ -168,7 +168,7 @@
             </div>
           </div>
         </a>
-        <a class="text-light text-decoration-none" href={{url_for('main.get_dvds_by_genres', genre_id=80)}}>
+        <a class="text-light text-decoration-none" href={{url_for("main.get_dvds_by_genres", genre_id=80)}}>
           <div class="card bg-dark category-card" >
             <img src="https://image.tmdb.org/t/p/original/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg" class="card-img-top" alt="...">
             <div class="card-body card-img-overlay category-overlay-desc">
@@ -177,7 +177,7 @@
             </div>
           </div>
         </a>
-        <a class="text-light text-decoration-none" href={{url_for('main.get_dvds_by_genres', genre_id=35)}}>
+        <a class="text-light text-decoration-none" href={{url_for("main.get_dvds_by_genres", genre_id=35)}}>
           <div class="card bg-dark category-card" >
             <img src="https://image.tmdb.org/t/p/original/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg" class="card-img-top" alt="...">
             <div class="card-body card-img-overlay category-overlay-desc">
@@ -186,7 +186,7 @@
             </div>
           </div>
         </a>
-        <a class="text-light text-decoration-none" href={{url_for('main.get_dvds_by_genres', genre_id=10751)}}>
+        <a class="text-light text-decoration-none" href={{url_for("main.get_dvds_by_genres", genre_id=10751)}}>
           <div class="card bg-dark category-card" >
             <img src="https://image.tmdb.org/t/p/original/k9tv1rXZbOhH7eiCk378x61kNQ1.jpg" class="card-img-top" alt="...">
             <div class="card-body card-img-overlay category-overlay-desc">
@@ -195,7 +195,7 @@
             </div>
           </div>
         </a>
-        <a class="text-light text-decoration-none" href={{url_for('main.get_dvds_by_genres', genre_id=10749)}}>
+        <a class="text-light text-decoration-none" href={{url_for("main.get_dvds_by_genres", genre_id=10749)}}>
           <div class="card bg-dark  category-card" >
             <img src="https://image.tmdb.org/t/p/original/74hLDKjD5aGYOotO6esUVaeISa2.jpg" class="card-img-top" alt="...">
             <div class="card-body card-img-overlay category-overlay-desc">
@@ -204,7 +204,7 @@
             </div>
           </div>
         </a>
-        <a class="text-light text-decoration-none" href={{url_for('main.get_dvds_by_genres', genre_id=53)}}>
+        <a class="text-light text-decoration-none" href={{url_for("main.get_dvds_by_genres", genre_id=53)}}>
           <div class="card bg-dark category-card" >
             <img src="https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" class="card-img-top" alt="...">
             <div class="card-body card-img-overlay category-overlay-desc">
@@ -213,7 +213,7 @@
             </div>
           </div>
         </a>
-        <a class="text-light text-decoration-none" href={{url_for('main.get_dvds_by_genres', genre_id=37)}}>
+        <a class="text-light text-decoration-none" href={{url_for("main.get_dvds_by_genres", genre_id=37)}}>
           <div class="card bg-dark category-card">
             <img src="https://image.tmdb.org/t/p/original/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg" class="card-img-top" alt="...">
             <div class="card-body card-img-overlay category-overlay-desc">
