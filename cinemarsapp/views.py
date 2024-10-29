@@ -4,7 +4,6 @@ from . import db
 from sqlalchemy import or_
 from .forms import CheckoutForm
 
-import traceback
 from random import randint
 from datetime import datetime
 
@@ -206,8 +205,8 @@ def add_wishlist():
                 wishlist_item.dvds.append(dvd)
                 try:
                     db.session.commit()
-                except:
-                    traceback.print_exc()
+                except Exception as e:
+                    print(repr(e))
                     flash("You've already added this DVD to your wishlist!")
                     return redirect(request.referrer)
         else:

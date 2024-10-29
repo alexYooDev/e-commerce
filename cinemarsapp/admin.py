@@ -35,8 +35,8 @@ def dbseed():
         db.session.add(genre_obj)
         genre_dict[genre["name"]] = genre_obj
     
-  except:
-    traceback.print_exc()
+  except Exception as e:
+    print(repr(e))
     return "There was an issue adding the genres in dbseed function"  
   try:   
     for actor in actors:
@@ -47,8 +47,8 @@ def dbseed():
         db.session.add(actor_obj)
         actor_dict[actor["name"]] = actor_obj
     
-  except:
-    traceback.print_exc()
+  except Exception as e:
+    print(repr(e))
     return "There was an issue adding the actors in dbseed function"
   
   try:
@@ -81,14 +81,14 @@ def dbseed():
           dvd_obj.actors.append(actor_obj)
         
       db.session.add(dvd_obj)
-  except:
-    traceback.print_exc()
+  except Exception as e:
+    print(repr(e))
     return "There was an issue adding the dvds through dbseed function"  
   
   try:
     db.session.commit()
-  except:
-    traceback.print_exc()
+  except Exception as e:
+    print(repr(e))
     return "There was an issue saving changes in DB"
   
-  return "DATA Filled"
+  return "DATA Successfully Filled"
